@@ -78,5 +78,9 @@ echo "[+] Wireguard config file to connect VPS
 $WIREGUARD_CONFIG
 "
 
+echo "[!] Firewall Setup"
+ufw allow 51820/udp
+ufw allow from 10.0.0.0/8
+
 echo "[+] Can destroy ssh connection now. Connect VPN with wireguard config and then connect ssh with $MULLVAD_INTERNAL_ADDRESS"
 systemctl enable --now wg-quick@wg0
